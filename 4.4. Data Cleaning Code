@@ -1,0 +1,28 @@
+#Data Cleaning techniques 
+
+#column drop 
+df_ords.drop(columns = ['eval_set'])
+df_ords = df_ords.drop(columns = ['eval_set'])
+
+#count all variables in a column 
+df['variable'].value_counts(dropna = False)
+
+#rename columns 
+df.rename(columns = {'old_name' : 'new_name'}, inplace = True)
+
+#changing column types 
+df.describe #for discovering types 
+df_ords['order_id'] = df_ords['order_id'].astype('str')
+
+#this code can show row numbers to help us on our indexing
+df_dep_t.reset_index()
+#set the first row of the data frame to a header variable by indexing it at 0 
+new_header = df_dep_t.iloc[0]
+#copy everything in a data frame from index 1 
+df_dep_t_new = df_dep_t[1:]
+#assign the column names to the data frame 
+df_dep_t_new.columns = new_header
+
+#change a data frame into a dictionary and call on individual variables in it 
+data_dict = df_dep_t_new.to_dict('index')
+print(data_dict.get('19'))
