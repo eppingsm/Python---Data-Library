@@ -1,0 +1,38 @@
+# Import libraries
+
+import pandas as pd
+import numpy as np
+import os
+
+#Create Data To Experiment on 
+
+data1 = {'customer_id':['6732', '767', '890', '635'], 
+        'month':['Jan-20', 'Jan-20', 'Jan-20', 'Jan-20'], 
+        'purchased_meat':[0, 13, 3, 4], 
+        'purchased_alcohol':[1, 2, 10, 0],
+        'purchased_snacks': [10, 5, 1, 7]} 
+        
+        # Define a dictionary containing February 2020 data 
+
+data2 = {'customer_id':['6732', '767', '890', '635'], 
+        'month':['Feb-20', 'Feb-20', 'Feb-20', 'Feb-20'], 
+        'purchased_meat':[0, 10, 5, 3], 
+        'purchased_alcohol':[2, 4, 14, 0],
+        'purchased_snacks': [15, 3, 2, 6]} 
+        
+        # Convert the dictionary into DataFrame  
+df = pd.DataFrame(data1,index=[0, 1, 2, 3])
+df_1 = pd.DataFrame(data2,index=[0, 1, 2, 3])
+
+#Concatanate dataframes 
+# Create a list that contains our dataframes
+frames = [df, df_1]
+
+# Check the data types to be sure it is a list
+type(frames)
+
+# Concatenate the dataframes using default options
+df_concat = pd.concat(frames)
+
+# Concatenate the dataframes using the axis = 1 --> create a wide format as an output
+df_concat = pd.concat(frames, axis = 1)
