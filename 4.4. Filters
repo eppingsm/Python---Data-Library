@@ -1,0 +1,12 @@
+#Apply filters to data frames in the following ways 
+
+df_prods[df_prods['department_id']==19]
+
+#use the loc function in pandas for the same thing 
+df_snacks_2 = df_prods.loc[df_prods['department_id'] == 19]
+#or check in a list 
+df_snacks_3 = df_prods.loc[df_prods['department_id'].isin([19])]
+
+#export to csv command 
+df_ords.to_csv(os.path.join(path, '02 Data','Prepared Data', 'orders_wrangled.csv'))
+
