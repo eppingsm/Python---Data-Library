@@ -1,0 +1,32 @@
+#Print the Name of every mixed column type in a data frame 
+for col in df_test.columns.tolist():
+  weird = (df_test[[col]].applymap(type) != df_test[[col]].iloc[0].apply(type)).any(axis = 1)
+  if len (df_test[weird]) > 0:
+    print (col)
+    
+ #Change data type in a data frame 
+    df_test['mix'] = df_test['mix'].astype('str')
+    
+ #check for amount of null values 
+    df_prods.isnull().sum()
+ #to view the missing values in a separate data frame
+    df_nan = df_prods.[df_prods['product_name'].isnull() == 'True']
+    
+ #fill empty values with mean or median 
+ df['column with missings'].fillna(mean value, inplace=True)
+ df['column with missings'].fillna(median value, inplace=True)
+ 
+ #remove all null values from a data frame 
+ df_prods_clean = df_prods[df_prods['product_name'].isnull() == False]
+ 
+ #drop na values in a data frame 
+ df_prods.dropna(inplace = True)
+ #only drop NA from a particular column 
+ df_prods.dropna(subset = [‘product_name’, inplace = True)
+ 
+ #find total duplicates within the dataframe
+ df_dups = df_prods_clean[df_prods_clean.duplicated()]
+ #drop duplicates 
+ df.drop_duplicates()
+ 
+ 
